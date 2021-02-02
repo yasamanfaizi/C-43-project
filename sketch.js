@@ -1,0 +1,45 @@
+function setup() {
+  createCanvas(displayWidth, displayHeight);
+  
+}
+
+function draw() {
+  background(0);  
+  translate(displayWidth/2,displayHeight/2-5)
+  rotate(-90)
+  hr = hour()
+  mn = minute()
+  sc = second()
+  angleMode(DEGREES)
+  scAngle = map(sc,0,60,0,360)
+  mnAngle = map(mn,0,60,0,360)
+  hrAngle = map(hr%12,0,12,0,360)
+  push()
+  stroke(255,0,0)
+  strokeWeight(7)
+  rotate(scAngle)
+  line(0,0,100,0)
+  pop()
+  push()
+  stroke("green")
+  strokeWeight(7)
+  rotate(mnAngle)
+  line(0,0,100,0)
+  pop()
+  push()
+  stroke("blue")
+  strokeWeight(7)
+  rotate(hrAngle)
+  line(0,0,100,0)
+  pop()
+  stroke(255,0,255)
+  point(0,0)
+  strokeWeight(10)
+  noFill()
+  stroke("red")
+  arc(0,0,300,300,0,scAngle)
+  stroke("green")
+  arc(0,0,280,280,0,mnAngle)
+  stroke("blue")
+  arc(0,0,260,260,0,hrAngle)
+}
